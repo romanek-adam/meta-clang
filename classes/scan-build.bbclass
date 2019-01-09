@@ -52,7 +52,7 @@ addtask scanview
 
 python () {
     # Remove scanbuild task when scanning is not enabled
-    if not(d.getVar('CLANG_SCAN_ENABLED') == "1"):
+    if not(d.getVar('CLANG_SCAN_ENABLED', True) == "1"):
         for i in ['do_scanbuild', 'do_scanview']:
             bb.build.deltask(i, d)
 }
